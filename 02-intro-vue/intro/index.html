@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo en vue</title>
+</head>
+<body>
+ 
+    
+
+ <div id="myApp1"></div> <!--asigno espacio para poder visualizar la app1 en el navegador, Vue solo vive en este espacio -->
+ 
+ 
+ <div id="myApp">
+    <h3>{{ message }}</h3>
+
+  <button v-on:click="changeQuote"> Cambiar mensaje</button>    <!-- se usa v-on:click="" para un evento, el evento de dar click, -->
+                                                      <!-- si quiero que haga algo le debo asociar ua funcion -->
+
+
+
+ </div> <!--asigno espacio para poder visualizar la app en el navegador, Vue solo vive en este espacio -->
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="app.js"></script>
+<!-- <script src="app1.js"></script> -->
+</body>
+</html>
