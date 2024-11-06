@@ -1,4 +1,4 @@
-const quotes = [
+const originalQuotes = [
     { quote: 'The night is darkest just before the dawn. And I promise you, the dawn is coming.', author: 'Harvey Dent, The Dark Knight' },
     { quote: 'I believe what doesn’t kill you simply makes you, stranger.', author: 'The Joker, The Dark Knight' },
     { quote: 'Your anger gives you great power. But if you let it, it will destroy you… As it almost did me', author: 'Henri Ducard, Batman Begins' },
@@ -10,7 +10,7 @@ const quotes = [
 
 
 
-const {createApp, ref } = Vue;
+const {createApp, ref, computed } = Vue;
 
 
 const app = createApp({
@@ -20,6 +20,12 @@ const app = createApp({
         const showAuthor = ref(true); //lo uso como vble reactiva para poder hacer que cambie de valor
         //ya que esta declarado como const, para usarlo tambien lo exporto en el return
 
+        const quotes = ref(originalQuotes);
+        const newMessage = ref('');
+        const totalQuotes = computed (() => {
+            return quotes.value.length;
+        })
+       
 
         const changeStatusAuthor = () => {
             showAuthor.value = !showAuthor.value;  //se puede hacer con false, pero para que siemrpe tome el valor inverso
@@ -27,10 +33,20 @@ const app = createApp({
             
         }
 
+        const addQuote = () => {
+            quotes.value.unshift({ quote: newMessage.value, author: 'Mateo Cespedes'});
+        
+            newMessage.value = '';
+        }
+        
+
         return {
             quotes,
             showAuthor,
             changeStatusAuthor,
+            addQuote,
+            totalQuotes,
+            newMessage,
         }
     }
 });
@@ -38,5 +54,5 @@ const app = createApp({
 
 
 
-
 app.mount('#myApp');
+
