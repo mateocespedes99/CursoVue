@@ -2,7 +2,7 @@
 <template>
   <IndecisionView />
 
-  <!-- 
+  <!--
 se comenta par fines de hacer una app chatbot -->
   <!-- <h1 className="text-3xl font-bold underline">Hello !</h1>
   <hr />
@@ -20,7 +20,7 @@ se comenta par fines de hacer una app chatbot -->
 <!-- revisar la documentacion de los SFC (single file components) -->
 
 <script lang="ts" setup>
-import IndecisionView from './views/indecisionView.vue';
+import IndecisionView from './views/indecisionView.vue'; //tambien puedo ahcerlo usando el path relativo que sería '@/views/IndecisionView.vue'
 import './styles.css';
 
 //se comenta para fines de crear una app de chatbot
