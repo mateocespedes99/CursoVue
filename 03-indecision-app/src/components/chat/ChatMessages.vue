@@ -37,10 +37,12 @@ interface Props {
   messages: ChatMessage[];
 }
 
-const { messages } = defineProps<Props>();
+const props = defineProps<Props>();
+const messagesRef = ref<ChatMessage[]>(props.messages);
+
 const chatRef = ref<HTMLDivElement | null>(null);
 
-watch(messages, () => {
+watch(messagesRef.value, () => {
   setTimeout(() => {
     chatRef.value?.scrollTo({
       top: chatRef.value.scrollHeight,
@@ -50,7 +52,6 @@ watch(messages, () => {
 });
 
 // watch(messages, () => {
-//   console.log('messages cambio', messages.length);
 //   chatRef.value?.scrollTo({
 //     top: chatRef.value.scrollHeight,
 //     behavior: 'smooth',
